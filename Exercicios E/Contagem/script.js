@@ -8,17 +8,17 @@ function contar (){
     if(inicio.value == "" || fim.value == "" || passo.value == "") alert('Preencha todos os campos')
     else if(passo.value == 0 || passo < 0 || inicio.value == fim.value || Math.abs(fim.value - inicio.value) < Math.abs(passo.value)) alert("Configuração inválida")
     else{
-        var res_string = inicio.value
+        console.log('s')
+        res.innerHTML += inicio.value
         if(inicio.value < fim.value){
             for(let i = Number(inicio.value)+Number(passo) ; i <= Number(fim.value) ; i+= passo){
-                res_string += ", " + i
+                res.innerHTML += ", " + i
             }
         } else {
             for(let i = Number(inicio.value)+Number(passo) ; i >= Number(fim.value) ; i-= passo){
-                res_string += ", " + i
+                res.innerHTML += ", " + i
             }
         }
-        res_string += " | FIM!"
-        res.innerHTML = res_string
+        res.innerHTML += " | FIM!"
     }
 }
