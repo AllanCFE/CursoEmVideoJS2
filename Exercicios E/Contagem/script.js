@@ -1,22 +1,22 @@
 function contar (){
-    var inicio = document.querySelector('#txtinicio')
-    var fim = document.querySelector('#txtfim')
+    var inicio = Number(document.querySelector('#txtinicio').value)
+    var fim = Number(document.querySelector('#txtfim').value)
     var passo = Number(document.querySelector('#txtpasso').value)
 
     var res = document.querySelector('#res')
 
-    if(inicio.value == "" || fim.value == "" || passo.value == "") alert('Preencha todos os campos')
-    else if(passo.value == 0 || passo < 0 || inicio.value == fim.value || Math.abs(fim.value - inicio.value) < Math.abs(passo.value)) alert("Configuração inválida")
+    if(inicio == "" || fim == "" || passo == "") alert('Preencha todos os campos')
+    else if(passo == 0 || passo < 0 || inicio == fim || Math.abs(fim - inicio) < Math.abs(passo)) alert("Configuração inválida")
     else{
         res.innerHTML = ""
         console.log('s')
-        res.innerHTML += inicio.value
-        if(inicio.value < fim.value){
-            for(let i = Number(inicio.value)+Number(passo) ; i <= Number(fim.value) ; i+= passo){
+        res.innerHTML += inicio
+        if(inicio < fim){
+            for(let i = inicio+passo ; i <= fim ; i+= passo){
                 res.innerHTML += " \u{1F449} " + i
             }
         } else {
-            for(let i = Number(inicio.value)+Number(passo) ; i >= Number(fim.value) ; i-= passo){
+            for(let i = inicio-passo ; i >= fim ; i-= passo){
                 res.innerHTML += " \u{1F449} " + i
             }
         }
