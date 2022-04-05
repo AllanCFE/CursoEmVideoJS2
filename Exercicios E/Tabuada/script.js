@@ -5,9 +5,11 @@ function calcular () {
     if(number == "") alert("Digite um valor para iniciar o cálculo!")
     else {
         res.innerHTML = ""
+        number = Number(number)
         for(let i = 1 ; i <= 10 ; i++){
-            number = Number(number)
-            res.innerHTML += `${number} x ${i} = ${number*i}<br>`
+            let item = document.createElement('option')
+            item.innerHTML= `${number} x ${i} = ${number*i}`
+            res.appendChild(item)
         }
     }
 }
